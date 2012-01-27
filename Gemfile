@@ -17,8 +17,10 @@ group :assets do
 end
 
 gem 'jquery-rails'
-
-# Use unicorn as the web server
+gem 'high_voltage'
+gem 'kaminari'
+gem 'paperclip'
+# Use uicorn as the web server
 # gem 'unicorn'
 
 # Deploy with Capistrano
