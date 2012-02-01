@@ -3,9 +3,6 @@
 <table>
   <tr>
     <th>Title</th>
-    <th>Street no</th>
-    <th>Price</th>
-    <th></th>
     <th></th>
     <th></th>
   </tr>
@@ -13,8 +10,6 @@
 <% @packages.each do |package| %>
   <tr>
     <td><%= package.title %></td>
-    <td><%= package.street_no %></td>
-    <td><%= package.price %></td>
     <td><%= link_to 'Edit', edit_package_path(package) %></td>
     <td><%= link_to 'Destroy', package, confirm: 'Are you sure?', method: :delete %></td>
   </tr>

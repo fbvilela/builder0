@@ -12,7 +12,7 @@
   <% end %>
   <div class="field">
     <%= f.label :home %>
-    <%= f.collection_select( :home_id, Home.all, :id, :name ) %>
+    <%= f.collection_select( :home_id, Home.all, :id, :name ) %> <%= link_to "New Home", new_home_path %>
   </div>
   <div class="field">
     <%= f.label :title %><br />

@@ -3,10 +3,6 @@
 <table>
   <tr>
     <th>Name</th>
-    <th>Bathrooms</th>
-    <th>Bedrooms</th>
-    <th>Car parks</th>
-    <th></th>
     <th></th>
     <th></th>
   </tr>
@@ -14,9 +10,6 @@
 <% @homes.each do |home| %>
   <tr>
     <td><%= home.name %></td>
-    <td><%= home.bathrooms %></td>
-    <td><%= home.bedrooms %></td>
-    <td><%= home.car_parks %></td>
     <td><%= link_to 'Edit', edit_home_path(home) %></td>
     <td><%= link_to 'Destroy', home, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
