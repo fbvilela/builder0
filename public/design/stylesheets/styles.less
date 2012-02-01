@@ -1,0 +1,1216 @@
+/************************************************************************************************************************************************************************************
+************* LESS ****************************************************
+**********************************************************************/
+@primary:#666A73;
+@secondary: #2F3540;
+
+
+@menu-list: #ccc;
+@grey: #666A73;
+@dark-grey: #2F3540;
+@light-blue: #67B8DE;
+@dark-blue: #3399CC;
+
+@gradient-top-color: #666A73;
+
+@gradient-bottom-color: #2F3540;
+
+.border-radius (@radius: 10px) {
+	border-radius: @radius;
+	-webkit-border-radius: @radius;
+	-moz-border-radius: @radius;
+	-ms-border-radius: @radius;
+	-o-border-radius: @radius;
+}
+
+.box-shadow (@hor: 0px, @vert: 0px, @blur: 3px, @shadow: #666) {
+	box-shadow: @hor @vert @blur @shadow;
+	-webkit-box-shadow: @hor @vert @blur @shadow;
+	-moz-box-shadow: @hor @vert @blur @shadow;
+	-ms-box-shadow: @hor @vert @blur @shadow;
+	-o-box-shadow: @hor @vert @blur @shadow;
+}
+
+
+.transition (@range: all, @time: 0.30s, @ease: ease-in-out) {
+	-moz-transition: @range @time @ease;
+	-webkit-transition: @range @time @ease;
+	-o-transition: @range @time @ease;
+	transition: @range @time @ease;
+}
+
+/************************************************************************************************************************************************************************************
+************* ENVIROMENT ****************************************************
+**********************************************************************/
+
+*{font-family:arial,helvetica,sans-serif,tahoma,verdana,geneva,lucida,"lucida grande";}
+
+html, body, div, h1, h2, h3, h4, h5, h6, ul, ol, dl, li, dt, dd, p, blockquote, pre, form, fieldset, table, th, td { 
+margin: 0; padding: 0; outline: none; color:#5d5d5d; 
+}
+
+@font-face {
+	font-family: my-first-font;
+	src: url(font/Alegre-Regular.ttf),
+		 url(fonts/Alegre-Regular.eot); /* IE */
+}
+
+span.font{
+	font-family: my-first-font;
+}
+	
+.clear { 
+	clear: both;
+}
+
+a { color: #fff; text-decoration: none; outline: none; }
+
+
+body { 
+	font: 9pt/17pt arial;
+	height: 100%;
+	outline: none;
+	background: #ccc;
+}
+
+/************************************************************************************************************************************************************************************
+************* MAIN ****************************************************
+**********************************************************************/
+
+#top-row{
+	display: block;
+	background: @gradient-bottom-color;
+	background: -webkit-gradient(linear, left top, left bottom, from(@gradient-top-color), to(@gradient-bottom-color));
+	background: -moz-linear-gradient(top, @gradient-top-color, @gradient-bottom-color);
+	background: -ms-linear-gradient(top, @gradient-top-color, @gradient-bottom-color);
+	background: -o-linear-gradient(top, @gradient-top-color, @gradient-bottom-color);
+}
+
+#container-top-nav-bar{
+	display:block;
+	margin: 0 auto;
+	width:960px;
+	height: 212px;
+}
+
+#logo{
+	display:block;
+	float: left;
+	width:100%;
+	height: 100px;
+	background: url(images/logo.png) no-repeat center;
+	margin: 10px 0 20px 0;
+	.transition;
+	opacity: 0.8;
+}
+
+#logo:hover{
+	opacity: 1;
+}
+
+#logo:active{
+	opacity: 0.8;
+}
+
+#logo a{
+	display:block;
+	width:232px;
+	height: 100px;
+	margin:0 auto;
+}
+
+#container-menu{
+	display:block;
+	float: left;
+	height: 82px;
+	overflow: hidden;
+}
+
+div.btn-active{
+	display:inline;
+	float:left;
+	width: 160px;
+	margin-top: -164px;
+}
+
+div.btn{
+	display:inline;
+	float:left;
+	width: 160px;
+	height: 246px;
+	.transition;
+}
+
+div.btn:hover{
+	margin-top:-82px
+}
+
+
+p.btn{
+	display:block;
+	height:62px;
+	font-size: 3em;
+	color: @menu-list;
+	text-align: center;
+	padding-top: 20px;
+}
+
+p.btn-over{
+	display:block;
+	height: 62px;
+	font-size: 3em;
+	background-position: center bottom;
+	color:#fff;
+	text-align: center;
+	padding-top: 20px;
+}
+
+p.btn-over:active{
+	color:#ccc;
+	font-size: 2.8em;
+}
+
+p.btn-arrow{
+	display:block;
+	height: 62px;
+	font-size: 3em;
+	background: url(images/arrow.png) no-repeat;
+	background-position: center bottom;
+	color:#fff;
+	text-align: center;
+	padding-top: 20px;
+}
+
+/* Gallery styles */
+
+#gallery{
+	.box-shadow;
+	.border-radius;
+	border: 1px solid #fff;
+	/* The width of the gallery */
+	width:958px;
+	overflow:hidden;
+	background: url(images/slideshow-bg.jpg) repeat-x;
+}
+
+#slides{
+	/* This is the slide area */
+	.border-radius;
+	height:450px;
+	/* jQuery changes the width later on to the sum of the widths of all the slides. */
+	width:958px;
+	overflow:hidden;
+}
+
+.slide{
+	float:left;
+	width: 960px;
+	height: 450px;
+}
+
+#menu{
+	/* This is the container for the thumbnails */
+	height:24px;
+	margin: -35px 35px 0 0;
+	float: right;
+}
+
+ul.menubar{
+	margin:0px;
+	padding:0px;
+}
+
+li.menuItem{
+	/* Every thumbnail is a li element */
+	width:24px;
+	display:inline-block;
+	list-style:none;
+	margin-right:1px;
+	height:24px;
+	overflow:hidden;
+	background: url(images/thumb.png) no-repeat;
+}
+
+li.act,li.act:hover{
+	/* The active state of the thumb */
+	background: url(images/thumb-active.png) no-repeat;
+}
+
+li.act a{
+	cursor:default;
+}
+
+li.menuItem a{
+	display:block;
+	height:24px;
+	padding-top:10px;
+}
+
+a img{
+	border:none;
+}
+
+#main{
+	/* The main container */
+	margin:0px auto;
+	text-align:left;
+	width:958px;
+	height: 500px;
+	padding-top: 50px;
+	position:relative;
+}
+
+#slideshow-shadow{
+	display: block;
+	margin: 0 auto;
+	width:960px;
+	height: 50px;
+	background: url(images/ContentShadow.png);
+}
+
+#slideshow-row{
+	display: block;
+	width:100%;
+	height:560px;
+	background: url(images/bg-two.png) repeat;
+	border-bottom: 1px solid #ccc;
+}
+
+#container-footer{
+	display:block;
+	width:960px;
+	margin: 20px auto;
+}
+
+#footer-left-column{
+	display:inline;
+	float: left;
+	width:620px;
+	height: px;
+	padding-right: 20px;
+	border-right: 1px solid #ebebeb;
+	cursor: default;
+	margin-bottom: 20px;
+}
+
+#hello-icon{
+	display:inline;
+	float: left;
+	width: 165px;
+	height: 223px;
+	background: url(images/hello-icon.png); 
+}
+
+.column-title{
+	display:block;
+	font-size: 3em;
+	color:@primary;
+	margin: 20px 0 20px 0;
+}
+
+#left-column-desc{
+	font-size: 1.3em;
+	text-align: justify;
+}
+
+#footer-right-column{
+	display:inline;
+	float: left;
+	width:300px;
+	margin-bottom: 20px;
+	padding-left: 19px;
+	cursor: default;
+}
+
+#right-column-info{
+	font-size: 1.3em;
+}
+
+#fb-like-btn{
+	margin-top: 15px;
+	height: 120px;
+}
+
+/****************************************************************************************************CONTENT************************************CONTENT*****************************************
+************* CONTENT ****************************************************
+**********************************************************************/
+
+#content-row{
+	display: block;
+	width:100%;
+	height:560px;
+	background: url(images/bg-two.png) repeat;
+	border-bottom: 1px solid #ccc;
+}
+
+#content{
+	display: block;
+	width: 960px;
+	height: 450px;
+	margin: 0 auto;
+	padding-top: 50px;
+}
+
+/****************************************************************************************************ABOUT US************************************ABOUT US*****************************************
+************* ABOUT US ****************************************************
+**********************************************************************/
+
+.container-imgs-about-us{
+	display: inline;
+	float: left;
+	width: 450px;
+	height: 450px;
+}
+
+.img-about-us{
+	display: inline;
+	float: left;
+	width: 141px;
+	height: 141px;
+	margin: 0 5px 5px 0;
+	background: #ebebeb;
+	border: 2px solid #fff;
+	.border-radius (5px);
+	overflow: hidden;
+	opacity: 0.9;
+	.transition;
+}
+
+.img-about-us:hover{
+	opacity: 1;
+}
+
+p#view-homes{
+	font-size: 2.5em;
+	line-height: 1em;
+	margin: 80px 0 0 30px;
+	color: @primary;
+}
+
+#container-about-us-desc{
+	display: inline;
+	float: left;
+	width: 460px;
+	margin: 15px 0 0 50px;
+}
+
+#about-us-title{
+	display: block;
+	font-size: 6em;
+	color: @primary;
+	cursor: default;
+}
+
+#about-us-desc{
+	display: block;
+	height: 360px;
+	font-size: 1.2em;
+	line-height: 1.4em;
+	color: #666;
+	overflow: scroll;
+	margin-top: 50px;
+	cursor: default;
+}
+
+/*****************************************************************************************         OUR HOMES     *******************        OUR HOMES       ******************************
+************* OUR HOMES ****************************************************
+**********************************************************************/
+
+.our-homes-left-column{
+	display:inline;
+	float: left;
+	width: 290px;
+	height: 450px;
+}
+
+.our-homes-desc-title{
+	display: block;
+	color: @primary;
+	font-size: 6em;
+	line-height: 1em;
+	margin: 20px 0px 20px 0px;
+	cursor: default;
+}
+
+.our-homes-desc{
+	font-size: 1.3em;
+	line-height: 1.3em;
+	margin-top: 0px;
+	cursor: default;
+}
+
+.package-thumb{
+	display: inline;
+	float: left;
+	background: #fff;
+	width: 145px;
+	height: 137px;
+	border: 0px solid #999;
+	margin: 0 0px 15px 15px;
+	.box-shadow;
+	.border-radius (3px);
+	.transition (all, 0.20s, ease-in-out);
+	border: 1px solid #fff;
+}
+
+.package-thumb:hover{
+	.box-shadow (0,0,5px,#000);
+	-webkit-transform: scale(1.15);
+	-moz-transform: scale(1.15);
+	-ms-transform: scale(1.15);
+	-o-transform: scale(1.15);
+}
+
+.mask-package-img-thumb{
+	display:block;
+	height: 105px;
+	width: 145px;
+	margin: 0px 0 0 0px;
+	overflow: hidden;
+}
+
+.package-img-thumb{
+	display: block;
+	width: 201px;
+	height: 105px;
+	.transition;
+}
+
+.package-img-thumb:hover{
+	margin-left: -54px;	
+}
+
+.package-img{
+	display:inline;
+	float: left;
+	margin: 0 2px 0 0;
+}
+
+.bed-car-bath-icons{
+	display:inline;
+	float: left;
+	width: 54px;
+	height: 105px;
+	background: url(images/bed-car-bath-icons.png) no-repeat;
+}
+
+.number-of-bedrooms{
+	display: block;
+	float: left;
+	width: 49px;
+	text-align: right;
+	font-size: 16px;
+	margin: 10px 0 0 0;
+}
+
+.number-of-cars{
+	display: block;
+	float: left;
+	width: 49px;
+	text-align: right;
+	font-size: 16px;
+	margin: 10px 0 0 0;
+}
+
+.number-of-bath{
+	display: block;
+	float: left;
+	width: 49px;
+	text-align: right;
+	font-size: 16px;
+	margin: 10px 0 0 0;
+}
+
+.package-title{
+	display: block;
+	margin: 5px 0 0 5px;
+	font-size: 12px;
+	color: @primary;
+	line-height: 12px;
+}
+
+.package-price{
+	display: block;
+	margin: -5px 0 0 5px;
+	font-size: 11px;
+	color: #666;
+}
+
+
+.container-pagination{
+	display:block;
+	width: 960px;
+	height: 50px;
+	margin: 0 auto;
+}
+
+ul.pagination{
+	display: block;
+	float: right;
+	height: 23px;
+	margin: 5px 20px 0 0;
+	padding: 0;
+	border: 1px solid #ccc;
+	background: #fff;
+	.border-radius (5px);
+}
+
+li.numbers-page{
+	display: inline;
+	float: left;
+	width: 52px;
+	border-right: 1px solid #ccc;
+	text-align: center;
+}
+
+li.numbers-page a{
+	display: block;
+	color: @secondary;
+	font-size: 1.2em;
+	width: 52px;
+	.transition (all, 0.20s, ease-in-out);
+}
+
+li.numbers-page a:hover{
+	background: @primary;
+}
+
+/*****************************************************************************************         OUR HOMES DETAILS     *******************        OUR HOMES DETAILS  **************************
+************* OUR HOMES DETAILS ****************************************************
+**********************************************************************/
+
+.big-img-mask{
+	display: inline;
+	float: left;
+	width: 638px;
+	height: 448px;
+	overflow: hidden;
+	.border-radius (5px);
+}
+
+.container-details{
+	display:inline;
+	float: right;
+	width: 290px;
+	height: 363px;
+	margin: 0px 0px 0 0;
+}
+
+.home-and-land-title{
+	display: block;
+	float: left;
+	width: 290px;
+	font-size: 2em;
+	line-height: 26px;
+	color: @primary;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid #CCC;
+	cursor: default;
+}
+
+
+.home-and-land-price{
+	display: block;
+	float: left;
+	width: 290px;
+	font-size: 22px;
+	line-height: 24px;
+	font-weight: bold;
+	color: @secondary;
+	margin-bottom: 10px;
+	cursor: default;
+}
+
+.container-icons{
+	display: block;
+	float: left;
+	width: 285px;
+	background: #fff;
+	border-radius: 5px;
+	padding: 5px 0 5px 5px;
+	.border-radius;
+	.box-shadow;
+}
+
+
+.little-icon{
+	display:inline;
+	float: left;
+	margin-bottom: 10px;
+}
+
+.bedrooms{
+	display: inline;
+	float: left;
+	font-size: 16px;
+	color: @primary;
+	padding-top: 15px;
+	margin-right: 10px;
+}
+
+
+.shower{
+	display: inline;
+	float: left;
+	font-size: 16px;
+	color: @primary;
+	padding-top: 15px;
+	margin-right: 10px;
+}
+
+.garage{
+	display: inline;
+	float: left;
+	font-size: 16px;
+	color: @primary;
+	padding-top: 15px;
+}
+
+.extra-info{
+	display:block;
+	float:left;
+	width:280px;
+	font-size: 14px;
+	color: @primary;
+	cursor: default;
+}
+
+.download-pdf-btn{
+	display:block;
+	float: left;
+	font-size: 1.3em;
+	width: 290px;
+	height: 40px;
+	background: @primary;
+	margin-top: 20px;
+	.border-radius;
+	.transition;
+}
+
+.download-pdf-btn:hover{
+	background: @secondary;
+}
+
+.download-pdf-btn a{
+	display:block;
+	width: 280px;
+	height: 30px;
+	padding: 10px 0px 0px 10px;
+	color: #fff;
+	.transition;
+}
+
+
+.go-back-btn{
+	display:block;
+	float: left;
+	font-size: 1.5em;
+	font-weight: bold;
+	width: 290px;
+	height: 40px;
+	background: @secondary;
+	margin-top: 20px;
+	.border-radius;
+	.transition;
+}
+
+
+.go-back-btn a{
+	display:block;
+	width: 280px;
+	height: 30px;
+	padding: 10px 0px 0px 10px;
+	color: #fff;
+	.transition;
+}
+
+#details-left-column{
+	display:inline;
+	float: left;
+	width:300px;
+	padding-right: 19px;
+	border-right: 1px solid #ebebeb;
+	cursor: default;
+	margin-bottom: 70px;
+	margin-right: 20px;
+}
+
+#floorplan-mask{
+	display:block;
+	float: left;
+	width:300px;
+	border: 1px solid #fff;
+	.border-radius;
+	.box-shadow;
+	overflow: hidden;	
+	.transition;
+}
+
+#details-right-column{
+	display:inline;
+	float: left;
+	width:280px;
+	margin-bottom: 70px;
+	cursor: default;
+}
+
+.zoom-in{
+	.transition;
+}
+
+.zoom-in:hover{
+	-webkit-transform: scale(1.1);
+	-moz-transform: scale(1.1);
+	-ms-transform: scale(1.1);
+	-o-transform: scale(1.1);
+}
+
+/*****************************************************************************************         home and land DETAILS     *******************       home and land DETAILS ********************
+************* home and land details ****************************************************
+**********************************************************************/
+
+.google-maps{
+	display:block;
+	float: left;
+	width:300px;
+	border: 1px solid #fff;
+	.border-radius;
+	.box-shadow;
+	overflow: hidden;
+	background: #fff;
+}
+
+/*****************************************************************************************         GALLERY     *******************       GALLERY ********************************************
+************* GALLERY ****************************************************
+**********************************************************************/
+
+#gallery-container{
+	display:block;
+	margin-top: 30px;
+}
+
+.gallery-img-mask{
+	display: inline;
+	float: left;
+	background: #fff;
+	overflow: hidden;
+	width: 145px;
+	height: 108px;
+	margin: 0 0px 15px 15px;
+	.box-shadow;
+	.border-radius (3px);
+	.transition (all, 0.20s, ease-in-out);
+	opacity: 0.9;
+	border: 1px solid #fff;
+}
+
+.gallery-img-mask:hover{
+	opacity: 1;
+	.box-shadow (0, 0, 3px, #000);
+}
+
+.album-title-btn{
+	display:block;
+	float: left;
+	font-size: 1.2em;
+	font-weight: bold;
+	width: 250px;
+	height: 40px;
+	background: @primary;
+	margin-bottom: 10px;
+	.border-radius;
+	.transition;
+}
+
+.album-title-btn:hover{
+	background: @secondary;
+}
+
+.album-title-btn a{
+	display:block;
+	width: 240px;
+	height: 30px;
+	padding: 10px 0px 0px 10px;
+	color: #fff;
+	.transition;
+}
+
+.album-title-btn-active{
+	display:block;
+	float: left;
+	font-size: 1.2em;
+	font-weight: bold;
+	width: 250px;
+	height: 40px;
+	background: @secondary;
+	margin-bottom: 10px;
+	.border-radius;
+	.transition;
+}
+
+.album-title-btn-active a{
+	display:block;
+	width: 240px;
+	height: 30px;
+	padding: 10px 0px 0px 10px;
+	color: #fff;
+	.transition;
+}
+
+/*****************************************************************************************        CONTACT US     *******************       CONTACT US  ********************************************
+*************     CONTACT US **************************************************** CONTACT US *****
+**********************************************************************/
+
+.contact-google-maps{
+	display: inline;
+	float:left;
+	width:614px;
+	height:394px;
+	border: 4px solid #fff;
+	.border-radius;
+	.box-shadow;
+	overflow: hidden;
+}
+
+.contact-right-column{
+	display:inline;
+	float:right;
+	width: 300px;
+	height: 450px;
+}
+
+.page-desc{
+	display: block;
+	float: left;
+	width: 300px;
+	font-size: 16px;
+	color:#666;
+	line-height: 20px;
+
+}
+
+.form{
+	display:block;
+	float:left;
+	width: 300px;
+	border-top: 1px solid #fff;
+	margin: 10px 0 0 0;
+	padding-top: 10px;
+	color: @primary;
+	font-size: 14px;
+}
+
+.form input{
+	width: 300px;	
+	background: transparent;
+	border: 1px solid #666;
+	margin: 0 0 10px 0;
+	font-size: 16px;
+	color: #666;
+}
+
+textarea{
+	color: #666;
+	font-size:14px;
+	border: 1px solid #666;
+	width: 300px;
+	height: 100px;
+	background: transparent;
+}
+
+.text-area{
+	display:block;
+	float: left;
+	margin: 0 0 0 0;
+	width: 300px;
+	color: @primary;
+	font-size: 14px;
+}
+
+p.clear-btn{
+	display:inline;
+	float: left;
+	margin:5px 0 0 0px;
+	font-size: 14px;
+}
+
+p.clear-btn a{
+	color: @primary;	
+}
+
+p.clear-btn a:hover{
+	color: #f00;	
+}
+
+p.send-btn{
+	display:inline;
+	float: right;
+	margin:5px 5px 0 0px;
+	font-size: 14px;
+}
+
+p.send-btn a{
+	color: @primary;	
+}
+
+p.send-btn a:hover{
+	color: @secondary;	
+}
+
+
+/*****************************************************************************************        ADMIN AREA    *******************       ADMIN AREA ********************************************
+*************     ADMIN AREA **************************************************** ADMIN AREA *****
+**********************************************************************/
+
+p.admin-area{
+	display: block;
+	font-size: 5em;
+	color: @primary;
+	text-align: center;
+	height: 60px;
+	margin-bottom: 29px;
+	border-bottom: 1px solid #ccc;
+}
+
+
+.edit-btn{
+	display: inline;
+	float: left;
+	width: 320px;
+	height: 361px;
+	background: url(images/glossy-icon.png);
+	.transition (all, 0.20s, ease-in-out);
+}
+
+.edit-btn:hover{
+	-webkit-transform: scale(1.15);
+	-moz-transform: scale(1.15);
+	-ms-transform: scale(1.15);
+	-o-transform: scale(1.15);
+}
+
+.edit-btn:active{
+	opacity: 0.6;
+}
+
+.edit-btn a{
+	display: block;
+	width: 320px;
+	height: 276px;
+	text-align: center;
+	font-size: 5em;
+	padding-top: 85px;
+	line-height: 50px;
+}
+
+
+/*****************************************************************************************        ADMIN AREA-EDIT    *******************       ADMIN AREA-EDIT *******************************
+*************     ADMIN AREA-EDIT **************************************************** ADMIN AREA-EDIT *****
+**********************************************************************/
+#admin-content-row{
+	display: block;
+	width:100%;
+	height:auto;
+	background: url(images/bg-two.png) repeat;
+	border-bottom: 1px solid #ccc;
+}
+
+#admin-content{
+	display: block;
+	width: 960px;
+	height: auto;
+	margin: 0 auto;
+	padding-top: 50px;
+	padding-bottom: 80px;
+}
+
+
+.data-list{
+						a{
+							display: block;
+							color: #fff;
+							font-size: 2em;
+							background: @dark-grey;
+							.border-radius (20px);
+							padding: 10px;
+							border-bottom: 1px solid #fff;
+							margin-bottom: 20px;
+							clear: both;
+							text-align: center;
+						}
+						
+						a:hover{
+							background: @light-blue;
+						}
+						
+						a:active{
+							background: @dark-blue;
+						}
+						
+						td a{
+							display: inline;
+							float: right;
+							color: #fff;
+							font-size: 1.5em;
+							background: @dark-grey;
+							.border-radius (20px);
+							padding: 5px 10px;
+							margin: 0px 0 0 20px;
+						}
+						
+						td.data-title{
+							display: inline;
+							float: left;
+							width: 740px;
+							margin: 8px 0 0px 0;
+							font-size: 1.5em;
+							color: @grey;
+							cursor: default;
+						}
+						
+						tr{
+							display: block;
+							width: 940px;
+							padding: 10px;
+							border-top: 1px solid #ccc;
+							border-bottom: 1px solid #fff;
+						}
+						
+						tr:hover{
+							.border-radius (5px);
+							background: #fff;
+						}
+}
+
+h1{
+	display: block;
+	font-size: 5em;
+	color: @primary;
+	text-align: center;
+	height: 60px;
+	margin-bottom: 29px;
+	border-bottom: 1px solid #ccc;
+	cursor: default;
+}
+
+.actions{
+					input{
+							display: block;
+							cursor: pointer;
+							color: #fff;
+							width: 960px;
+							font-size: 2em;
+							background: @dark-blue;
+							.border-radius (20px);
+							padding: 6px;
+							border-bottom: 1px solid #fff;
+							margin-bottom: 20px;
+							clear: both;
+							text-align: center;
+							border: none;
+						}
+						
+						input:hover{
+							background: @light-blue;
+						}
+						
+						input:active{
+							background: @dark-blue;
+						}
+}
+
+
+
+
+
+.field{
+	display: inline;
+	float: left;
+	width: 278px;
+	background: #ebebeb;
+	border: 1px solid #fff;
+	.border-radius (5px);
+	padding:5px 5px;
+	margin: 0 20px 20px 0;
+	
+				label{
+					display: block;
+					float: left;
+					font-size: 1.1em;
+					color: @dark-blue;
+					margin-bottom: 5px;
+				}
+				
+				input{
+					width: 275px;
+					font-size: 1.5em;
+					background: #fff;
+					border: 1px solid #ccc;
+					color: #666;
+				}
+				
+				textarea{
+					width: 275px;
+					height: 200px;
+					border: 1px solid #ccc;
+					background: #fff;
+				}
+				
+				select{
+					width: 275px;
+					overflow: hidden;
+					font-size: 1.3em;
+					cursor: pointer;
+				}
+}
+
+
+.field-upload{
+	display: inline;
+	float: left;
+	width: 278px;
+	background: #ebebeb;
+	border: 1px solid #fff;
+	.border-radius (5px);
+	padding:5px 5px;
+	margin: 0 20px 20px 0;
+	
+							label{
+								display: block;
+								float: left;
+								font-size: 1.1em;
+								color: @dark-blue;
+								margin-bottom: 5px;
+							}
+	
+							input{
+								width: 275px;
+								font-size: 1.15em;
+								background: #fff;
+								border: 1px solid #ccc;
+								color: #666;
+							}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
